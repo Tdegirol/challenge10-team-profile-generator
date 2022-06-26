@@ -20,8 +20,9 @@
   inquirer package required
   jest required
 
-  INSERT WALKTHROUGH VIDEO HERE
-
+  View Video Walkthrough at the link below:
+  https://drive.google.com/file/d/1GKi72M2XICLUHY1X-RTy5NeFneGu6lOl/view
+  
   <a id="tests"></a>
   ## Testing
   npm test is used and passed tests are shown below:
