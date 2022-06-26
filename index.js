@@ -5,6 +5,7 @@ const Employee = require('./lib/Employee');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+const startHTML = require('./src/generateHTML');
 const employees = [];
 
 init = () => {
@@ -50,7 +51,7 @@ addManager = () => {
         } else {
             data = new Manager(data.name, data.id, data.email, data.officeNumber, "Manager");
             employees.push(data);
-            stopAdd();
+            htmlGen();
         }
     })
 }
@@ -103,11 +104,10 @@ addMember = () => {
                 data = new Engineer(data.name,data.id,data.email,answers.roleInfo,data.role);
                 employees.push(data);
                 if(answers.continueMembers === 'yes'){
-                    console.log(employees);
                     addMember();
                 } else {
-                    console.log(employees);
-                    stopAdd();
+                    // console.log(employees);
+                    htmlGen();
                 }
             })
 
@@ -131,11 +131,10 @@ addMember = () => {
                 data = new Intern(data.name,data.id,data.email,answers.roleInfo,data.role);
                 employees.push(data);
                 if(answers.continueMembers === 'yes'){
-                    console.log(employees);
                     addMember();
                 } else {
-                    console.log(employees);
-                    stopAdd();
+                    // console.log(employees);
+                    htmlGen();
                 }
             })
         } else if (data.role === 'Employee'){
@@ -153,11 +152,10 @@ addMember = () => {
                 data = new Employee(data.name,data.id,data.email,data.role);
                 employees.push(data);
                 if(answers.continueMembers === 'yes'){
-                    console.log(employees);
                     addMember();
                 } else {
-                    console.log(employees);
-                    stopAdd();
+                    // console.log(employees);
+                    htmlGen();
                 }
             })
         }
@@ -165,17 +163,27 @@ addMember = () => {
     })
 };
 
-stopAdd = () => {
-    // const html = `</div
-    // </div>
-    // </body>
-    // </html>`;
-    //     fs.appendFile("./output/team.html", html, function(err){
-    //         if (err) {
-    //             console.log(err);
-    //         }
-    //     });
-    console.log("End");
-};
+
+
+htmlGen = () => {
+    fs.writeFile('./dist/index.html', startHTML(employees), (err) =>{
+    if (err){
+        console.log(err);
+        return;
+    }else{
+        console.log('Success!');
+    }});
+// //     console.log("Your page is being created.");
+// //     const writeFile = fileContent => {
+// //         fs.writeFile('./dist/index.html', fileContent, err => {
+// //             if (err){
+// //                 console.log(err);
+// //                 return;
+// //             }else{
+// //                 console.log('Success!');
+// //             }});
+// //         }
+// //     return startTeam(employees);
+}
 
 init();
