@@ -9,7 +9,7 @@
 
   <a id="description"></a>
   ## Description
-    This assignment is to build a team profile using a combination of tools learned so far. The inquirer package is used to accept command line user input, then an HTML page is generated using javascript. TDD was also utilized in order to create and pass assigned tests.
+  This assignment is to build a team profile using a combination of tools learned so far. The inquirer package is used to accept command line user input, then an HTML page is generated using javascript. TDD was also utilized in order to create and pass assigned tests.
 
   <a id="install"></a>
   ## Installation 
